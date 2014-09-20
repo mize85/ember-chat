@@ -1,0 +1,11 @@
+<ul id="content">
+    {{#each model}}
+        <li>({{this.zeit}}) {{this.name}} : {{this.text}}</li>
+    {{/each}}
+</ul>
+<footer>
+    {{input id="name" type="text" placeholder="dein Name" value=name}}
+    {{input id="text" type="text" placeholder="schreibe etwas..." value=text action="sendMessage" on="enter" }}
+
+    <button {{action "sendMessage"}}>Senden</button>
+</footer>
