@@ -8,7 +8,7 @@ export default Ember.ArrayController.extend({
         this._super();
 
         var self = this;
-        var socket = io.connect("127.0.0.1:8888");
+        var socket = io.connect("http://192.168.2.38:8888");
 
         this.set("socket", socket);
 
