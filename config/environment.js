@@ -18,6 +18,8 @@ module.exports = function(environment) {
       // when it is created
     },
 
+    CHAT_HOST: "http://192.168.2.38:8888",
+
     contentSecurityPolicy: {
     'default-src': "'none'",
     'script-src': "'self' 'unsafe-eval'",
