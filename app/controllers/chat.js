@@ -8,17 +8,16 @@ export default Ember.ArrayController.extend({
         this._super();
 
         var self = this;
-        var socket = io.connect("http://192.168.2.38:8888");
 
-        this.set("socket", socket);
-
-        socket.on('chat', function (data) {
+        this.socket.on('chat', function (data) {
 
             Ember.Logger.debug(data);
             self.get("content").pushObject(data);
+
+            // nach unten scrollen
+            Ember.$('body').scrollTop(Ember.$('body')[0].scrollHeight);
         });
-        // nach unten scrollen
-        Ember.$('body').scrollTop(Ember.$('body')[0].scrollHeight);
+
     },
 
 
@@ -31,9 +30,9 @@ export default Ember.ArrayController.extend({
             var name = this.get("name");
             var text = this.get("text");
 
-            var socket = this.get("socket");
 
-            socket.emit('chat', { name: name, text: text });
+
+            this.socket.emit('chat', { name: name, text: text });
             // Text-Eingabe leeren
             this.set("text", null);
         }
