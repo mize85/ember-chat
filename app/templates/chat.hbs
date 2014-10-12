@@ -1,11 +1,39 @@
-<ul id="content">
-    {{#each model}}
-        <li>({{this.zeit}}) {{this.name}} : {{this.text}}</li>
-    {{/each}}
-</ul>
-<footer>
-    {{input id="name" type="text" placeholder="dein Name" value=name}}
-    {{input id="text" type="text" placeholder="schreibe etwas..." value=text action="sendMessage" on="enter" }}
-
-    <button {{action "sendMessage"}}>Senden</button>
-</footer>
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                </div>
+                <div class="panel-body">
+                    <ul class="chat">
+                        {{#each model}}
+                            <li class="left clearfix">
+                            <span class="chat-img pull-left">
+                                <img src="http://placehold.it/50/55C1E7/fff&amp;text=U" alt="User Avatar" class="img-circle">
+                            </span>
+                            <div class="chat-body clearfix">
+                                <div class="header">
+                                    <strong class="primary-font">{{this.name}}</strong> <small class="pull-right text-muted">
+                                        <span class="glyphicon glyphicon-time"></span>{{this.zeit}}</small>
+                                </div>
+                                <p>
+                                     {{this.text}}
+                                </p>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <div class="input-group">
+                        {{input id="btn-input" class="form-control input-sm" type="text" placeholder="schreibe etwas..." value=text action="sendMessage" on="enter" }}
+                        <span class="input-group-btn">
+                            <button {{action "sendMessage"}} class="btn btn-warning btn-sm" id="btn-chat">
+                                Send</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
