@@ -15,7 +15,7 @@ export default Ember.ArrayController.extend({
             self.get("content").pushObject(data);
 
             // nach unten scrollen
-            Ember.$('body').scrollTop(Ember.$('body')[0].scrollHeight);
+            Ember.$('.panel-body').scrollTop(Ember.$('.panel-body')[0].scrollHeight);
         });
 
     },
