@@ -1,6 +1,9 @@
 /* jshint node: true */
 
 module.exports = function(environment) {
+
+  var HOST = "192.168.178.58:8888";
+
   var ENV = {
     modulePrefix: 'chat',
     environment: environment,
@@ -18,13 +21,14 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    CHAT_HOST: "http://192.168.2.38:8888",
+
+    CHAT_HOST: "http://"+HOST,
 
     contentSecurityPolicy: {
     'default-src': "'none'",
     'script-src': "'self' 'unsafe-eval'",
     'font-src': "'self'",
-    'connect-src': "'self' http://192.168.2.38:8888 ws://192.168.2.38:8888",
+    'connect-src': "'self' http://"+HOST+" ws://"+HOST,
     'img-src': "'self'",
     'style-src': "'self'",
     'media-src': "'self'"
